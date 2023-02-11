@@ -70,7 +70,7 @@ router.get("/github", async (req, res) => {
 			(email) => email.verified && email.primary
 		)[0].email;
 
-		const user = await User.findOne({ email: mail });
+		let user = await User.findOne({ email: mail });
 
 		if (user) {
 			console.log("User found!");
